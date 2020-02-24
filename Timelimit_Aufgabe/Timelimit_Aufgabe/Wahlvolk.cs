@@ -41,8 +41,10 @@ namespace US_Wahl {
 
         }
 
-        public static void Abfrage(List<Person> inputListe)//Methode zur Linqabfrage
-      {
+
+        /*public static void abfrage(List<Person> inputListe)//Methode zur Linqabfrage 
+            {
+
             int stichwort;
             string stichwortS;
 
@@ -71,9 +73,31 @@ namespace US_Wahl {
                                     $"Geschlecht: {item.Geschlecht}; Schicht: {item.Schicht}");
                 Console.WriteLine();
             }
+        }*/
+
+        public static void abfrage4(List<Person> inputListe)//Anzahl der Personen die Republikaner gewählt haben, gruppiert nach Nachname
+        {
+
+            List<Person> ergebnis = new List<Person>();      //Liste für die gefundenen Ergebnisse(temporär)
 
 
+
+
+            var abfrage4 = from p in inputListe
+                           where p.PolitischeHeimat == 0
+                           group p by p.Nachname;
+
+            foreach (var item in abfrage4)
+            {
+                Console.WriteLine(item.Key);
+                foreach (var p in item)
+                {
+                    Console.WriteLine($"PersonenID: {p.ID}; Name: {p.Vorname}; Nachname: {p.Nachname};\n" +
+                                    $"Geschlecht: {p.Geschlecht}; Schicht: {p.Schicht}; Politische Heimat: {p.PolitischeHeimat}");
+                }
+            }
         }
+
 
 
 
@@ -110,5 +134,48 @@ namespace US_Wahl {
 
 
         }
+
+        public static void abfrage5(List<Person> inputListe)//Anzahl der Personen die Republikaner gewählt haben, gruppiert nach Nachname
+        {
+
+            List<Person> ergebnis = new List<Person>();      //Liste für die gefundenen Ergebnisse(temporär)
+
+
+
+
+            var abfrage5 = from p in inputListe
+                           where (p.Alter < 40) && (p.Beeinflußbarkeit == Beeinflußbarkeit.Leicht)
+                           select p;
+
+            foreach (var item in abfrage5)
+            {
+                Console.WriteLine($"Name: {item.Vorname}; Nachname: {item.Nachname}; ID: {item.ID}; Alter: {item.Alter}");
+
+            }
+        }
+
+        public static void abfrage6(List<Person> inputListe)//Anzahl der Personen die Republikaner gewählt haben, gruppiert nach Nachname
+        {
+
+            List<Person> ergebnis = new List<Person>();      //Liste für die gefundenen Ergebnisse(temporär)
+
+
+
+
+            var abfrage6 = from p in inputListe
+                           where ((p.PLZ < 20000) || (p.PLZ > 80000)) && p.Nachname.Contains("M")
+                           select p;
+
+            foreach (var item in abfrage6)
+            {
+                Console.WriteLine($"PersonenID: {item.ID}; Name: {item.Vorname}; Nachname: {item.Nachname};\n" +
+                    $"Geschlecht: {item.Geschlecht}; Schicht: {item.Schicht}; Alter: {item.Alter}; PLZ: {item.PLZ}");
+                Console.WriteLine();
+
+            }
+        }
+
+
+
     }
 }
