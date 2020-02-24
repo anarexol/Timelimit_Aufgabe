@@ -198,5 +198,29 @@ namespace US_Wahl {
             }
 
         } 
+
+        public static void Abfrage9(List<Person> inputListe)
+        {
+
+            var abfrage9 = inputListe.Where(x => x.PolitischeHeimat == PolitischeHeimat.Demokraten).OrderBy(x=>x.Alter).First();
+
+            //foreach (var item in abfrage9)
+            //{
+           // Console.WriteLine(abfrage9.Vorname);
+            Console.WriteLine("Id : {0} | Vn : {1,-11} | Nn : {4,-11} | Plz : {7,-15} | M/W :{2,-10} | Schicht : {3,-18} | Politische Heimat : {5,-15} | Alter : {8}",abfrage9.ID, abfrage9.Vorname, abfrage9.Geschlecht, abfrage9.Schicht, abfrage9.Nachname, abfrage9.PolitischeHeimat, abfrage9.PolitischeHeimat, abfrage9.PLZ, abfrage9.Alter);
+            Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            //}
+
+
+        }
+
+
+        public static void Abfrage10(List<Person> inputListe)
+        {
+
+
+
+
+        }
     }
 }

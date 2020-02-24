@@ -15,8 +15,8 @@ namespace US_Wahl {
             List<Person> list = Wahlvolk.people(mengeWaehler); //Wir erstellen eine Liste mit 500 zufälligen Wählern
             Wahlvolk.NamenInDateiSchreiben(list); // Hier schreiben wir die Liste in eine Datei
 
-            Menu(list);
-
+            //  Menu(list);
+            Wahlvolk.Abfrage9(list);
             Console.ReadLine();
         }
         public static void Menu(List<Person> inputListe) {
@@ -97,7 +97,7 @@ namespace US_Wahl {
                             Console.Clear();
                             break;
                         }
-                        /*case 7:
+                       case 7:
                             {
                                 Wahlvolk.Abfrage7(inputListe);
                                 Console.ReadLine();
@@ -111,7 +111,7 @@ namespace US_Wahl {
                                 Console.Clear();
                                 break;
                             }
-                        case 9:
+                        /* case 9:
                             {
                                 Wahlvolk.Abfrage9(inputListe);
                                 Console.ReadLine();
