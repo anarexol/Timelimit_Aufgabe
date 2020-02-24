@@ -43,33 +43,6 @@ namespace US_Wahl {
 
 
        
-        public static void abfrage4(List<Person> inputListe)//Anzahl der Personen die Republikaner gewählt haben, gruppiert nach Nachname
-        {
-
-            List<Person> ergebnis = new List<Person>();      //Liste für die gefundenen Ergebnisse(temporär)
-
-            string linie = "-";
-
-
-
-            var abfrage4 = from p in inputListe
-                           where p.PolitischeHeimat == 0
-                           group p by p.Nachname;
-
-            foreach (var item in abfrage4)
-            {
-                Console.WriteLine(item.Key);
-                foreach (var p in item)
-                {
-                    Console.WriteLine($"PersonenID: {p.ID}; Name: {p.Vorname}; Nachname: {p.Nachname};\n" +
-                                    $"Geschlecht: {p.Geschlecht}; Schicht: {p.Schicht}; Politische Heimat: {p.PolitischeHeimat}");
-                }
-            }
-        }
-
-
-
-
 
         public static void Abfrage1(List<Person> inputListe)
         {
@@ -213,7 +186,6 @@ namespace US_Wahl {
 
 
         }
-
 
         public static void Abfrage10(List<Person> inputListe)
         {
