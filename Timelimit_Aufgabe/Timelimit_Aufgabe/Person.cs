@@ -9,7 +9,7 @@ using System.Threading;
 namespace Timelimit_Aufgabe { //Aufstellen der Enums
     enum Geschlecht { Weiblich, Männlich }
     enum Beeinflußbarkeit { Leicht, Mittel, Schwer }
-    enum Schicht { UnterSchicht, UntermittelSchicht, OberemittelSchicht, ObereSchicht }
+    enum Schicht { UnterSchicht, UntermittelSchicht , OberemittelSchicht, ObereSchicht }
     enum PolitischeHeimat { Republikaner, Demokraten }
 
 
@@ -21,6 +21,8 @@ namespace Timelimit_Aufgabe { //Aufstellen der Enums
         public Beeinflußbarkeit Beeinflußbarkeit { get; set; }
         public Schicht Schicht { get; set; }
         public PolitischeHeimat PolitischeHeimat { get; set; }
+
+        
 
         //Einlesen der 3 Dateien für Vorname(Mädchen/Jungen) und Nachnamen
         string[] Nachnamearray = File.ReadAllLines("nachnamen-UTF8.txt");
@@ -39,6 +41,8 @@ namespace Timelimit_Aufgabe { //Aufstellen der Enums
                 PolitischeHeimat = (PolitischeHeimat)zf.Next(2);
                 Schicht = (Schicht)zf.Next(4);
                 ID = zf.Next(10000, 50000);
+                Alter = zf.Next(20, 90);
+
             }
             else
             {
