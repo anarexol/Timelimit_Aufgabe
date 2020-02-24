@@ -15,12 +15,15 @@ namespace Timelimit_Aufgabe { //Aufstellen der Enums
 
     class Person { //Properties der Klasse Person
         public int ID { get; set; }
+        public int Alter { get; set; }
         public string Vorname { get; set; }
         public string Nachname { get; set; }
+        public int PLZ { get; set; }
         public Geschlecht Geschlecht { get; set; }
         public Beeinflußbarkeit Beeinflußbarkeit { get; set; }
         public Schicht Schicht { get; set; }
         public PolitischeHeimat PolitischeHeimat { get; set; }
+       
 
         //Einlesen der 3 Dateien für Vorname(Mädchen/Jungen) und Nachnamen
         string[] Nachnamearray = File.ReadAllLines("nachnamen-UTF8.txt");
@@ -39,6 +42,8 @@ namespace Timelimit_Aufgabe { //Aufstellen der Enums
                 PolitischeHeimat = (PolitischeHeimat)zf.Next(2);
                 Schicht = (Schicht)zf.Next(4);
                 ID = zf.Next(10000, 50000);
+                Alter = zf.Next(20, 90);
+                PLZ = zf.Next(10000, 99999);
             }
             else
             {
@@ -48,6 +53,8 @@ namespace Timelimit_Aufgabe { //Aufstellen der Enums
                 PolitischeHeimat = (PolitischeHeimat)zf.Next(2);
                 Schicht = (Schicht)zf.Next(4);
                 ID = zf.Next(50001, 100000);
+                Alter = zf.Next(20, 90);
+                PLZ = zf.Next(10000, 99999);
             }
 
         }
