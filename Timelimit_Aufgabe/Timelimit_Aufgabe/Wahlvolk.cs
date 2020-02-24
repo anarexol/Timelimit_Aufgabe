@@ -41,8 +41,10 @@ namespace US_Wahl {
 
         }
 
+
         /*public static void abfrage(List<Person> inputListe)//Methode zur Linqabfrage 
             {
+
             int stichwort;
             string stichwortS;
 
@@ -94,6 +96,43 @@ namespace US_Wahl {
                                     $"Geschlecht: {p.Geschlecht}; Schicht: {p.Schicht}; Politische Heimat: {p.PolitischeHeimat}");
                 }
             }
+        }
+
+
+
+
+        public static void Abfrage1(List<Person> inputListe)
+        {
+
+            var abfrage1 = inputListe.Where(x => x.Geschlecht == Geschlecht.Weiblich).Where(x=>x.Schicht == Schicht.UnterSchicht).OrderBy(x=>x.Vorname);
+            foreach (var item in abfrage1)
+            {
+                Console.WriteLine("Id : {0,5} Vorname : {1,-11} Nachname : {4,-11} Geschlecht :{2,-11} Schicht : {3,-11}  Politische Heimat : {5,-11}",item.ID,item.Vorname,item.Geschlecht,item.Schicht,item.Nachname,item.PolitischeHeimat,item.PolitischeHeimat);
+            }
+
+
+        }
+
+        public static void Abfrage2(List<Person> inputListe)
+        {
+            int count = 0;
+            var abfrage2 = inputListe.Where(x => x.Schicht == Schicht.UntermittelSchicht || x.Schicht == Schicht.OberemittelSchicht);
+
+            foreach (var item in abfrage2)
+            {
+                count++;
+            }
+
+            Console.WriteLine(count);
+        }
+
+        public static void Abfrage3(List<Person> inputListe)
+        {
+
+            var abfrage3 = inputListe.Where(x=>x.)
+
+
+
         }
 
         public static void abfrage5(List<Person> inputListe)//Anzahl der Personen die Republikaner gewählt haben, gruppiert nach Nachname

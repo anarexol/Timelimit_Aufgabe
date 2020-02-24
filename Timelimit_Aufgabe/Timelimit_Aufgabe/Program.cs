@@ -14,8 +14,12 @@ namespace US_Wahl {
 
             List<Person> list = Wahlvolk.people(mengeWaehler); //Wir erstellen eine Liste mit 500 zufälligen Wählern
             Wahlvolk.NamenInDateiSchreiben(list); // Hier schreiben wir die Liste in eine Datei
+
+            Wahlvolk.Abfrage2(list); //wir wenden eine Linq abfrage auf die eben erstellte Liste an und geben die Ergebnisse aus
+
             //Wahlvolk.abfrage(list); //wir wenden eine Linq abfrage auf die eben erstellte Liste an und geben die Ergebnisse aus
             Wahlvolk.abfrage6(list);
+
             Console.ReadLine();
 
 
