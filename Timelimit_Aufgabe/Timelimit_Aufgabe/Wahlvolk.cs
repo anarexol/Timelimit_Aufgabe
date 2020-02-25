@@ -31,10 +31,10 @@ namespace US_Wahl {
 
             StreamWriter sw = new StreamWriter(fs);
 
-            foreach (Person person in inputListe)
+            foreach (Person item in inputListe)
             {
-                // sw.WriteLine("Nachname : "+person.Nachname + "\t Vorname :" + person.Vorname + "\t Politische Heimat : " + person.politischeHeimat);
-                sw.WriteLine("Nachname :  {0,-11} Vorname : {1,-11} Politische Heimat : {2,-11}", person.Nachname, person.Vorname, person.PolitischeHeimat);
+                Console.WriteLine("Id : {0} | Vn : {1,-11} | Nn : {4,-11} | Plz : {6,-15} | M/W :{2,-10} | Schicht : {3,-18} | Politische Heimat : {5,-15} | Alter : {8}", item.ID, item.Vorname, item.Geschlecht, item.Schicht, item.Nachname, item.PolitischeHeimat, item.PolitischeHeimat, item.PLZ,item.Alter);
+                Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             }
             sw.Flush();
             sw.Close();
@@ -50,7 +50,8 @@ namespace US_Wahl {
             var abfrage1 = inputListe.Where(x => x.Geschlecht == Geschlecht.Weiblich).Where(x=>x.Schicht == Schicht.UnterSchicht).OrderBy(x=>x.Vorname);
             foreach (var item in abfrage1)
             {
-                Console.WriteLine("Id : {0,5} Vorname : {1,-11} Nachname : {4,-11} Geschlecht :{2,-11} Schicht : {3,-11}  Politische Heimat : {5,-11}",item.ID,item.Vorname,item.Geschlecht,item.Schicht,item.Nachname,item.PolitischeHeimat,item.PolitischeHeimat);
+                Console.WriteLine("Id : {0} | Vn : {1,-11} | Nn : {4,-11} | Plz : {6,-15} | M/W :{2,-10} | Schicht : {3,-18} | Politische Heimat : {5,-15} | Alter : {8}", item.ID, item.Vorname, item.Geschlecht, item.Schicht, item.Nachname, item.PolitischeHeimat, item.PolitischeHeimat, item.PLZ,item.Alter);
+                Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             }
 
 
@@ -78,7 +79,8 @@ namespace US_Wahl {
 
             foreach (var item in abfrage3)
             {
-                Console.WriteLine("Id : {0,5} Vorname : {1,-11} Nachname : {4,-11} Geschlecht :{2,-11} Schicht : {3,-15}  Politische Heimat : {5,-15}", item.ID, item.Vorname, item.Geschlecht, item.Schicht, item.Nachname, item.PolitischeHeimat, item.PolitischeHeimat);
+                Console.WriteLine("Id : {0} | Vn : {1,-11} | Nn : {4,-11} | Plz : {6,-15} | M/W :{2,-10} | Schicht : {3,-18} | Politische Heimat : {5,-15} | Alter : {8}", item.ID, item.Vorname, item.Geschlecht, item.Schicht, item.Nachname, item.PolitischeHeimat, item.PolitischeHeimat, item.PLZ,item.Alter);
+                Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             }
 
         }
@@ -95,14 +97,14 @@ namespace US_Wahl {
                            where p.PolitischeHeimat == 0
                            group p by p.Nachname;
 
-            foreach (var item in abfrage4)
+            foreach (var p in abfrage4)
             {
-                Console.WriteLine(item.Key);
-                foreach (var p in item)
-                {
-                    Console.WriteLine($"PersonenID: {p.ID}; Name: {p.Vorname}; Nachname: {p.Nachname};\n" +
-                                    $"Geschlecht: {p.Geschlecht}; Schicht: {p.Schicht}; Politische Heimat: {p.PolitischeHeimat}");
-                }
+                Console.WriteLine(p.Key);
+                foreach (var item in p)
+            {
+                Console.WriteLine("Id : {0} | Vn : {1,-11} | Nn : {4,-11} | Plz : {6,-15} | M/W :{2,-10} | Schicht : {3,-18} | Politische Heimat : {5,-15} | Alter : {8}", item.ID, item.Vorname, item.Geschlecht, item.Schicht, item.Nachname, item.PolitischeHeimat, item.PolitischeHeimat, item.PLZ,item.Alter);
+                Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            }
             }
         }
 
@@ -120,8 +122,8 @@ namespace US_Wahl {
 
             foreach (var item in abfrage5)
             {
-                Console.WriteLine($"Name: {item.Vorname}; Nachname: {item.Nachname}; ID: {item.ID}; Alter: {item.Alter}");
-
+                Console.WriteLine("Id : {0} | Vn : {1,-11} | Nn : {4,-11} | Plz : {6,-15} | M/W :{2,-10} | Schicht : {3,-18} | Politische Heimat : {5,-15} | Alter : {8}", item.ID, item.Vorname, item.Geschlecht, item.Schicht, item.Nachname, item.PolitischeHeimat, item.PolitischeHeimat, item.PLZ,item.Alter);
+                Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             }
         }
 
@@ -139,9 +141,10 @@ namespace US_Wahl {
 
             foreach (var item in abfrage6)
             {
-                Console.WriteLine($"PersonenID: {item.ID}; Name: {item.Vorname}; Nachname: {item.Nachname};\n" +
-                    $"Geschlecht: {item.Geschlecht}; Schicht: {item.Schicht}; Alter: {item.Alter}; PLZ: {item.PLZ}");
-                Console.WriteLine();
+            
+                Console.WriteLine("Id : {0} | Vn : {1,-11} | Nn : {4,-11} | Plz : {6,-15} | M/W :{2,-10} | Schicht : {3,-18} | Politische Heimat : {5,-15} | Alter : {8}", item.ID, item.Vorname, item.Geschlecht, item.Schicht, item.Nachname, item.PolitischeHeimat, item.PolitischeHeimat, item.PLZ,item.Alter);
+                Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            
 
             }
         }
@@ -177,12 +180,9 @@ namespace US_Wahl {
 
             var abfrage9 = inputListe.Where(x => x.PolitischeHeimat == PolitischeHeimat.Demokraten).OrderBy(x=>x.Alter).First();
 
-            //foreach (var item in abfrage9)
-            //{
-           // Console.WriteLine(abfrage9.Vorname);
             Console.WriteLine("Id : {0} | Vn : {1,-11} | Nn : {4,-11} | Plz : {7,-15} | M/W :{2,-10} | Schicht : {3,-18} | Politische Heimat : {5,-15} | Alter : {8}",abfrage9.ID, abfrage9.Vorname, abfrage9.Geschlecht, abfrage9.Schicht, abfrage9.Nachname, abfrage9.PolitischeHeimat, abfrage9.PolitischeHeimat, abfrage9.PLZ, abfrage9.Alter);
             Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-            //}
+
 
 
         }
