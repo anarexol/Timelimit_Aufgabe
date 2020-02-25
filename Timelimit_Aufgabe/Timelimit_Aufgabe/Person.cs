@@ -22,13 +22,11 @@ namespace Timelimit_Aufgabe { //Aufstellen der Enums
         public Geschlecht Geschlecht { get; set; }
         public Beeinflußbarkeit Beeinflußbarkeit { get; set; }
         public Schicht Schicht { get; set; }
-        public PolitischeHeimat PolitischeHeimat { get; set; }
-       
+        public PolitischeHeimat PolitischeHeimat { get; set; }    
 
         
-
         //Einlesen der 3 Dateien für Vorname(Mädchen/Jungen) und Nachnamen
-        string[] Nachnamearray = File.ReadAllLines("nachnamen-UTF8.txt");
+        string[] Nachnamearray = File.ReadAllLines("nachnamen.txt");
         string[] JungVornamearray = File.ReadAllLines("jungennamen.txt");
         string[] MädchenVornamearray = File.ReadAllLines("maedchennamen.txt");
 

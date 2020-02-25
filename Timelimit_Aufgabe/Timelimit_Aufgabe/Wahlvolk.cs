@@ -189,8 +189,12 @@ namespace US_Wahl {
 
         public static void Abfrage10(List<Person> inputListe)
         {
-
-
+            var abfrage10 = inputListe.Where(x=>x.PolitischeHeimat==PolitischeHeimat.Republikaner && x.Alter>=30 && x.Alter<=50 && x.Schicht==Schicht.ObereSchicht);
+            foreach (var item in abfrage10)
+            {
+                Console.WriteLine("Id : {0} | Vn : {1,-11} | Nn : {4,-11} | Plz : {6,-15} | M/W :{2,-10} | Schicht : {3,-18} | Politische Heimat : {5,-15} | Alter : {8}", item.ID, item.Vorname, item.Geschlecht, item.Schicht, item.Nachname, item.PolitischeHeimat, item.PolitischeHeimat, item.PLZ,item.Alter);
+                Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            }
 
 
         }
